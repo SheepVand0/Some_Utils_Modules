@@ -1,0 +1,13 @@
+﻿<bg xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
+	xsi:schemaLocation='https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd'
+	>
+  <settings-container child-control-height='true' child-expand-height='true'>
+        <slider-setting text='Sparkles count : ' show-buttons='true' min='0' max='200' increment='1' integer-only='true' apply-on-change='true' value='sparklesCount'></slider-setting>
+        <slider-setting text='Explosion particles count : ' show-buttons='true' min='0' max='200' increment='1' integer-only='true' apply-on-change='true' value='explosionParticlesCount'></slider-setting>
+        <slider-setting text='Saber speed multiplier : ' show-buttons='true' min='0' max='20' increment='0.05' apply-on-change='true' value='saberSpeedMultiplier'></slider-setting>
+        <slider-setting text='Lifetime multiplier : ' show-buttons='true' min='0' max='1' increment='0.05' apply-on-change='true' value='lifetimeMultiplier'></slider-setting>
+        <toggle-setting text='Override defaults particles color' apply-on-change='true' value='overrideDefaultParticlesColor'></toggle-setting>
+        <color-setting text='Override color : ' value='particleOverrideColor' apply-on-change='true'></color-setting>
+        <toggle-setting text='Use random particle color : ' value='useRandomParticleColor' apply-on-change='true'></toggle-setting>
+  </settings-container>
+</bg>

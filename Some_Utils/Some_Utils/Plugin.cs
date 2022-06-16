@@ -92,7 +92,10 @@ namespace Some_Utils
         public static void AddModule(Module l_module)
         {
             if (l_module.m_name == null)
+            {
+                Log.Error("A module doesn't have a valid name, ingnoring");
                 return;
+            }
 
             Plugin.Log.Info("Adding module : " + l_module.m_name);
             m_modules.Add(l_module);

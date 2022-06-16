@@ -1,0 +1,13 @@
+﻿{
+  "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
+  "id": "Module_Particles",
+  "name": "Module_Particles",
+  "author": "SheepVand",
+  "version": "0.0.5",
+  "description": "Some utils modules that allows you to custom particles",
+  "gameVersion": "1.18.3",
+  "dependsOn": {
+    "BSIPA": "^4.2.0",
+    "Some_Utils": "^0.2.0"
+  }
+}

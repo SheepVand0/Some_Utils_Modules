@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7VqhK03LRddzF3Q4Nr3nftCZWT4R3qcYRMCggZuLpVmaBi7KEfk2ze7pk+3uYHro440pVMXeOsVZnJOcbmfELA==",
+  "dgSpecHash": "PehAv48KBg/7l/bDjkZic32C95mAvrT9EYxLw88cJCgIKf9NJoLSqmeDrZVVLskTRQE/5LMG+HB42Z6//7ddTg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\Items\\Files\\Codes\\BSMods\\Some_Utils_Modules\\Some_Utils\\Some_Utils\\Some_Utils.csproj",
+  "projectFilePath": "C:\\Users\\user\\Documents\\GitHub\\Some_Utils_Modules\\Some_Utils\\Some_Utils\\Some_Utils.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\beatsabermoddingtools.tasks\\2.0.0-beta4\\beatsabermoddingtools.tasks.2.0.0-beta4.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.build.framework\\16.5.0\\microsoft.build.framework.16.5.0.nupkg.sha512",

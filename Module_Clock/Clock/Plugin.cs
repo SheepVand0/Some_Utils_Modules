@@ -70,7 +70,7 @@ namespace Clock
 
         private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
         {
-            m_currentSceneName = arg0.name;
+            m_currentSceneName = arg0.name; 
         }
 
         [OnExit]

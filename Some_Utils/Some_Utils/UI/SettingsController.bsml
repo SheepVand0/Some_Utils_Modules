@@ -3,10 +3,10 @@
 	>
   <settings-container child-control-height='true' child-expand-height='true'>
     <button text='Download modules'></button>
-    <grid cell-size-x='20.5' cell-size-y='20.5' child-align='MiddleCenter'>
+    <grid cell-size-x='20.5' cell-size-y='20.5' child-align='MiddleCenter' spacing-x='15'>
       <macro.for-each items='modulesSettings'>
-        <horizontal horizontal-fit="PreferredSize" spacing="1">
-          <button text='~moduleName' on-click='openModuleSettings'></button>
+        <horizontal horizontal-fit="PreferredSize" spacing="10">
+          <button text='~moduleName' on-click='openModuleSettings' pref-height='8' preferred-width='32'></button>
 	      </horizontal>
       </macro.for-each>
     </grid>

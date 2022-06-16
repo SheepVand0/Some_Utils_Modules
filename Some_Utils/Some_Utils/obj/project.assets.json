@@ -1037,11 +1037,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Desktop\\Items\\Files\\Codes\\BSMods\\Some_Utils_Modules\\Some_Utils\\Some_Utils\\Some_Utils.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Documents\\GitHub\\Some_Utils_Modules\\Some_Utils\\Some_Utils\\Some_Utils.csproj",
       "projectName": "Some_Utils",
-      "projectPath": "C:\\Users\\user\\Desktop\\Items\\Files\\Codes\\BSMods\\Some_Utils_Modules\\Some_Utils\\Some_Utils\\Some_Utils.csproj",
+      "projectPath": "C:\\Users\\user\\Documents\\GitHub\\Some_Utils_Modules\\Some_Utils\\Some_Utils\\Some_Utils.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Desktop\\Items\\Files\\Codes\\BSMods\\Some_Utils_Modules\\Some_Utils\\Some_Utils\\obj\\",
+      "outputPath": "C:\\Users\\user\\Documents\\GitHub\\Some_Utils_Modules\\Some_Utils\\Some_Utils\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
