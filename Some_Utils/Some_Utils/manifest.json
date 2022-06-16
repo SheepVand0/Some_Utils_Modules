@@ -1,0 +1,12 @@
+﻿{
+  "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
+  "id": "Some_Utils",
+  "name": "Some_Utils",
+  "author": "SheepVand",
+  "version": "0.2.0",
+  "description": "Utils modules base",
+  "gameVersion": "1.21.0",
+  "dependsOn": {
+    "BSIPA": "^4.2.0"
+  }
+}
