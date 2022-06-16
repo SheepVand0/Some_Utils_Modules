@@ -1,1 +1,1 @@
-Clock;Type the clock link here;(C# download from github test)
+Clock Module;https://github.com/SheepVand0/Some_Utils_Modules/blob/main/Module_Clock/Clock/bin/Debug/Clock.dll?raw=true;Clock
