@@ -90,8 +90,7 @@ namespace Module_Particles
         public override void StopModule()
         {
             base.StopModule();
-
-            
+   
         }
 
         public override BSMLViewController AskForModuleSettingsViewController()
