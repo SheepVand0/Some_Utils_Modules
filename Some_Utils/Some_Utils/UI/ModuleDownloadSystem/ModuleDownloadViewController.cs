@@ -143,7 +143,7 @@ namespace Some_Utils.UI.ModuleDownloadSystem
 
             using (var l_client = new WebClient())
             {
-                l_client.DownloadFileAsync(new System.Uri("Update file here"), "./SomeUtils_UpdateFile");
+                l_client.DownloadFileAsync(new System.Uri("https://raw.githubusercontent.com/SheepVand0/Some_Utils_Modules/main/Finished_Modules/VersionsList.txt"), "./SomeUtils_UpdateFile");
                 l_client.DownloadFileCompleted += DownloadUpdateFileCompleted;
             }
 
