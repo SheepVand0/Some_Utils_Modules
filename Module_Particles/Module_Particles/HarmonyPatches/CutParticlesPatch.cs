@@ -41,7 +41,7 @@ namespace Module_Particles.HarmonyPatches
                 if (!PluginConfig.Instance.m_useRandomParticleColor)
                 {
                     Color l_overrideParticleColor = PluginConfig.Instance.m_overrideParticleColor;
-                    color = new Color32(Convert.ToByte(l_overrideParticleColor.r), Convert.ToByte(l_overrideParticleColor.r), Convert.ToByte(l_overrideParticleColor.r), 255);
+                    color = l_overrideParticleColor;
                 } else
                 {
                     color = new Color32(Convert.ToByte(UnityEngine.Random.Range(0, 1)), Convert.ToByte(UnityEngine.Random.Range(0, 1)), Convert.ToByte(UnityEngine.Random.Range(0, 1)),255);
