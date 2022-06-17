@@ -1,16 +1,13 @@
 ﻿{
   "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
-  "id": "Clock",
-  "name": "Clock",
+  "id": "Module_GameTweaker",
+  "name": "Module_GameTweaker",
   "author": "SheepVand",
-  "version": "0.6.0",
+  "version": "0.1.0",
   "description": "",
   "gameVersion": "1.21.0",
   "dependsOn": {
     "BSIPA": "^4.2.0",
-    "Some_Utils": "^0.2.0"
-  },
-  "loadAfter": [
-    "Some_Utils"
-  ]
+    "Some_Utils":  "^0.2.0"
+  }
 }
