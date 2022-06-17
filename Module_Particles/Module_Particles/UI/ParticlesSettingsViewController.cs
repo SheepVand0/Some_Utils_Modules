@@ -63,6 +63,18 @@ namespace Module_Particles.UI
             set => PluginConfig.Instance.m_useRandomParticleColor = value;
         }
 
+        [UIValue("multPartDirX")]
+        protected bool multPartDirX {
+            get => PluginConfig.Instance.m_multiplyParticleDirectionX;
+            set => PluginConfig.Instance.m_multiplyParticleDirectionX = value;
+        }
+
+        [UIValue("multPartDirY")]
+        protected bool multPartDirY
+        {
+            get => PluginConfig.Instance.m_multiplyParticleDirectionY;
+            set => PluginConfig.Instance.m_multiplyParticleDirectionY = value;
+        }
 
         [UIAction("#post-parse")]
         internal void PostParse()

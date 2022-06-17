@@ -6,8 +6,8 @@ using UnityEngine;
 
 [assembly: InternalsVisibleTo(GeneratedStore.AssemblyVisibilityTarget)]
 namespace Module_Particles.Configuration
-{
-    internal class PluginConfig
+{ 
+    class PluginConfig
     {
         public static PluginConfig Instance { get; set; }
 
@@ -26,6 +26,12 @@ namespace Module_Particles.Configuration
         public virtual Color m_overrideParticleColor { get; set; } = Color.white;
         [JsonProperty("useRandomParticleColor")]
         public virtual bool m_useRandomParticleColor { get; set; } = false;
+        [JsonProperty("particleDirectionX")]
+        public virtual bool m_multiplyParticleDirectionX { get; set; } = false;
+        [JsonProperty("particleDirectionY")]
+        public virtual bool m_multiplyParticleDirectionY { get; set; } = false;
+
+
         /// <summary>
         /// This is called whenever BSIPA reads the config from disk (including when file changes are detected).
         /// </summary>

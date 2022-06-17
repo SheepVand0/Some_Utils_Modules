@@ -28,11 +28,13 @@ namespace Module_Particles.HarmonyPatches
         public static void Prefix(NoteCutParticlesEffect __instance, ref Vector3 cutPoint, ref Vector3 cutNormal, ref Vector3 saberDir, ref float saberSpeed, ref Vector3 noteMovementVec, ref Color32 color, ref int sparkleParticlesCount, ref int explosionParticlesCount, ref float lifetimeMultiplier)
         {
             saberSpeed = PluginConfig.Instance.m_saberSpeedMultiplier * saberSpeed;
-            saberDir = new Vector3(saberDir.x * saberSpeed, saberDir.y * saberSpeed, saberDir.z);
             sparkleParticlesCount = PluginConfig.Instance.m_sparklesCount;
             explosionParticlesCount = PluginConfig.Instance.m_explosionParticlesCount;
+            cutNormal = new Vector3(
+                (PluginConfig.Instance.m_multiplyParticleDirectionX) ? cutNormal.x * saberSpeed : cutNormal.x, 
+                (PluginConfig.Instance.m_multiplyParticleDirectionY) ? cutNormal.y * saberSpeed : cutNormal.y, 
+                cutNormal.z);
             lifetimeMultiplier = PluginConfig.Instance.m_lifeTimeMultiplier * lifetimeMultiplier;
-            cutNormal = new Vector3(cutNormal.x * saberSpeed, cutNormal.y * saberSpeed, cutNormal.z);
             if (PluginConfig.Instance.m_overrideDefaultParticlesColor)
             {
 
