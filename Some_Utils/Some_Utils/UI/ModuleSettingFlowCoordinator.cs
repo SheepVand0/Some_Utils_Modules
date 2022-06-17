@@ -33,13 +33,12 @@ namespace Some_Utils.UI
 
         }
 
-        public void ShowFlow(int p_moduleIndex)
+        public void ShowFlow(int p_moduleIndex, Module p_moduleRef)
         {
-            SetTitle(Plugin.m_modules[p_moduleIndex].m_name + " settings");
-
             ProvideInitialViewControllers(Plugin.m_modules[p_moduleIndex].AskForModuleSettingsViewController());
-            
+               
             m_lastFlow = BeatSaberUI.MainFlowCoordinator.YoungestChildFlowCoordinatorOrSelf();
+            SetTitle(p_moduleRef.m_name + " settings");
             m_lastFlow.PresentFlowCoordinator(this, null, ViewController.AnimationDirection.Vertical, false, false);
         }
 

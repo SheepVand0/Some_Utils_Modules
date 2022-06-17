@@ -46,7 +46,7 @@ namespace Some_Utils.UI
                 _settingsFlowCoordinator = BeatSaberUI.CreateFlowCoordinator<ModuleSettingFlowCoordinator>();
 
             if (m_moduleRef != null)
-                _settingsFlowCoordinator.ShowFlow(m_moduleRefIndex);
+                _settingsFlowCoordinator.ShowFlow(m_moduleRefIndex,m_moduleRef);
         }
     }
 }
