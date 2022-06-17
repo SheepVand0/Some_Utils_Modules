@@ -2,14 +2,17 @@
 	xsi:schemaLocation='https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd'
 	>
   <settings-container child-control-height='true' child-expand-height='true'>
+    <text text='A game restart is requierd after module installation' underlined='true' font-size='3' font-align='Center'></text>
     <macro.for-each items='downloadableModules'>
       <horizontal>
-        <text text='~moduleName'></text>
+        <text text='~moduleName' id='moduleName'></text>
         <button id='downloadButton' text='~downloadText' on-click='downloadModule' click-event='downloadModule'></button>
       </horizontal>
     </macro.for-each>
-    <loading-indicator active='~indicatorActive'></loading-indicator>
-    <text text='~refreshingPercentage' active='~indicatorActive'></text>
+    <vertical id='loadingLayout' child-control-height='true' child-expand-height='true'>
+      <loading-indicator active='false'></loading-indicator>
+    </vertical>
+    <text text='Error during getting module list' color='red' font-size='5' id='ErrorText' active='false'></text>
     <modal size-delta-x='75' size-delta-y='40' show-event='downloadModule' hide-event='closeModal'>
       <text text='Downloading module'></text>
       <button text='Hide' click-event='closeModal'></button>

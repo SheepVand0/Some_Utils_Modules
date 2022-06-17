@@ -22,6 +22,9 @@ namespace Some_Utils.UI.ModuleDownloadSystem
 
         protected string downloadText { get { return "Download"; } set { } }
 
+        [UIComponent("moduleName")] TextMeshProUGUI m_moduleName = null;
+        [UIComponent("downloadButton")] Button m_moduleDownload = null;
+
         string m_name;
         string m_url;
         string m_moduleId;
@@ -31,11 +34,18 @@ namespace Some_Utils.UI.ModuleDownloadSystem
             m_name = p_name;
             m_url = p_url;
             m_moduleId = p_moduleId;
+     
+        }
 
-            var l_pluginInstalled = PluginManager.GetPluginFromId(p_moduleId);
+        [UIAction("#post-parse")]
+        protected void postparse()
+        {
+            m_moduleName.text = m_moduleId;
+            var l_pluginInstalled = PluginManager.GetPluginFromId(m_moduleId);
             if (l_pluginInstalled != null)
             {
-                downloadText = "Delete";
+                m_moduleDownload.SetButtonText("Delete");
+                m_moduleAlreadyInstalled = true;
             }
         }
 
@@ -44,22 +54,36 @@ namespace Some_Utils.UI.ModuleDownloadSystem
         {
             if (m_moduleAlreadyInstalled)
             {
-                File.Delete("./" + m_name);
+                File.Delete("./Plugins/" + m_name);
                 m_moduleAlreadyInstalled = false;
             }
             else
             {
                 using (var client = new WebClient())
                 {
-                    client.DownloadFileAsync(new System.Uri(m_url), "./"+m_name);
+                    client.DownloadFileAsync(new System.Uri(m_url), "./Plugins/"+m_name);
+                    client.DownloadFileCompleted += ModuleFinishDownload;
+                    m_moduleDownload.SetButtonText("Downloading...");
                 }
-
+                
             }
         }
 
-        public void UpdateText()
+        public bool CheckIfModuleDownloaded()
         {
-            moduleName = m_name;
+            return File.Exists("./Plugins/" + m_name);
+        }
+
+        private void ModuleFinishDownload(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        {
+            m_moduleAlreadyInstalled=CheckIfModuleDownloaded();
+            if (m_moduleAlreadyInstalled)
+            {
+                m_moduleDownload.SetButtonText("Delete");
+            } else
+            {
+                m_moduleDownload.SetButtonText("Download");
+            }
         }
     }
 
@@ -67,84 +91,35 @@ namespace Some_Utils.UI.ModuleDownloadSystem
     [ViewDefinition("Some_Utils.UI.ModuleDownloadSystem.ModuleDownloadViewController.bsml")]
     internal class ModuleDownloadViewController : BSMLAutomaticViewController
     {
-        List<ModuleDownloadUI> downloadableModules = new List<ModuleDownloadUI>() { new ModuleDownloadUI("None", "Undefined","None") };
+        
 
-        protected bool indicatorActive { get { return true; } set { } }
 
-        protected string refreshingPercentage { get { return "%"; } set { } }
-
-        public void Awake()
+        public ModuleDownloadViewController()
         {
             
         }
+
+        [UIComponent("ErrorText")] TextMeshProUGUI m_errorText = null;
+        [UIComponent("loadingLayout")] VerticalLayoutGroup m_loadingLayout = null;
+
+        public List<ModuleDownloadUI> downloadableModules = new List<ModuleDownloadUI>() { new ModuleDownloadUI("None", "Undefined", "None") };
+
+        public bool m_postParseLoadingLayoutVisible = true;
+        public bool m_postParseErrorTextVisible = false;
 
         [UIAction("#post-parse")]
         internal void PostParse()
         {
-            string l_dir = "C:/SomeUtils_Modules";
-            string l_fileName = "modules_list.txt";
-            if (!Directory.Exists(l_dir))
-            {
-                Directory.CreateDirectory(l_dir);
-            }
-
-            if (File.Exists(l_dir+"/"+l_fileName))
-            {
-                File.Delete(l_dir+"/"+l_fileName);
-            }
-
-            using (var client = new WebClient())
-            {
-                client.DownloadFileAsync(new System.Uri("https://raw.githubusercontent.com/SheepVand0/Some_Utils_Modules/main/Finished_Modules/FinishedModules.txt"), "C:\\Modules\\"+l_fileName);
-                client.DownloadFileCompleted += Client_DownloadFileCompleted;
-            }
-
-            
-
+            UpdateView();   
             //using (var l_reader = File.OpenText(""))
             // Code to run after BSML finishe
         }
 
-        private void Client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        public void UpdateView()
         {
-            refreshingPercentage = e.ProgressPercentage.ToString() + "%";
+            m_loadingLayout.gameObject.SetActive(m_postParseLoadingLayoutVisible);
+            m_errorText.gameObject.SetActive(m_postParseErrorTextVisible);
         }
 
-        private void Client_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
-        {
-            Plugin.Log.Info("Module list refreshing finished");
-            string l_dir = "C:/SomeUtils_Modules";
-            string l_fileName = "modules_list.txt";
-            using (var l_reader = File.OpenText(l_dir + "/"+l_fileName))
-            {
-                List<string> l_lines = new List<string>();
-                string l_currentLine;
-                while ((l_currentLine = l_reader.ReadLine()) != null)
-                {
-                    l_lines.Add(l_currentLine);
-                }
-
-                downloadableModules = new List<ModuleDownloadUI>();
-
-                foreach (var l_line in l_lines)
-                {
-                    var l_splited = l_line.Split(';');
-
-                    //On the FinishedModules.txt file in Github; Params : Dll name;File Url;Module Id(Same as the id in manifest.json of the module);
-                    downloadableModules.Add(new ModuleDownloadUI(l_splited[0], l_splited[1], l_splited[2]));
-                }
-
-                foreach (ModuleDownloadUI l_current in downloadableModules)
-                {
-                    l_current.UpdateText();
-                }
-            }
-            if (File.Exists(l_dir+"/"+l_fileName))
-            {
-
-            }
-            
-            indicatorActive = false;
-        }
     }
 }
