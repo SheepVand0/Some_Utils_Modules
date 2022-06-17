@@ -1,0 +1,13 @@
+﻿<bg xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
+	xsi:schemaLocation='https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd'
+	>
+  <settings-container child-control-height='true' child-expand-height='true'>
+    <toggle-setting text='Disable Beat lines' value='disableBeatLines' apply-on-change='true'></toggle-setting>
+    <toggle-setting text='Disable Spectrograms' value='disableSpectrograms' apply-on-change='true'></toggle-setting>
+    <text text='-----------rings-----------'></text>
+    <slider-setting text='Rings scale' show-buttons='true' min='0' max='2' increment='0.05' apply-on-change='true' value='ringScale'></slider-setting>
+    <slider-setting show-buttons='true' increment='1' min='0' max='50' integer-only='true' value='ringCount' apply-on-change='true' text='Ring count'></slider-setting>
+    <slider-setting text='Rings rotation speed' show-buttons='true' min='0' increment='0.05' max='15' apply-on-change='true' value='ringRotSpeed'></slider-setting>
+    <slider-setting text='Rings movement speed' show-buttons='true' min='0' increment='0.05' max='15' apply-on-change='true' value='ringMovSpeed'></slider-setting>
+  </settings-container>
+</bg>

@@ -52,14 +52,5 @@ namespace Module_Particles.HarmonyPatches
 
     }
 
-    [HarmonyPatch(typeof(BeatLineManager),nameof(BeatLineManager.Start))]
-    public class beatlinepatch
-    {
-        public static void Prefix(BeatLineManager __instance)
-        {
-            GameObject.DestroyImmediate(__instance.gameObject);
-        }
-    }
-
 
 }

@@ -78,14 +78,8 @@ namespace Module_Particles
             base.StartModule();
 
             m_settingsController = BeatSaberUI.CreateViewController<ParticlesSettingsViewController>();
-
-            BSEvents.gameSceneLoaded += BSEvents_gameSceneLoaded;
         }
 
-        private void BSEvents_gameSceneLoaded()
-        {
-            GameObject.Find("Spectrograms").SetActive(false);
-        }
 
         public override void StopModule()
         {

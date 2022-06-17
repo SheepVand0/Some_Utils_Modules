@@ -137,10 +137,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HarmonyPatches\BeatLinesPatch.cs" />
+    <Compile Include="HarmonyPatches\OverrideEnvironmentFix.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Configuration\PluginConfig.cs" />
     <Compile Include="Module_GameTweakerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HarmonyPatches\RingsPatches.cs" />
+    <Compile Include="UI\GameTweakerSettingsViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="manifest.json" />
@@ -148,6 +152,9 @@
   <ItemGroup>
     <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />
     <None Include="Module_GameTweaker.csproj.user" Condition="Exists('Module_GameTweaker.csproj.user')" />
+    <EmbeddedResource Include="UI\GameTweakerSettingsViewController.bsml">
+      <DependentUpon>GameTweakerSettingsViewController.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BeatSaberModdingTools.Tasks">
@@ -156,8 +163,6 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
