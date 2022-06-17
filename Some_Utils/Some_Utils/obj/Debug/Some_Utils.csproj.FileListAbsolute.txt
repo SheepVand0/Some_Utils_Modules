@@ -40,3 +40,4 @@ C:\Users\user\Documents\GitHub\Some_Utils_Modules\Some_Utils\Some_Utils\obj\Debu
 C:\Users\user\Documents\GitHub\Some_Utils_Modules\Some_Utils\Some_Utils\obj\Debug\Some_Utils.csproj.CopyComplete
 C:\Users\user\Documents\GitHub\Some_Utils_Modules\Some_Utils\Some_Utils\obj\Debug\Some_Utils.dll
 C:\Users\user\Documents\GitHub\Some_Utils_Modules\Some_Utils\Some_Utils\obj\Debug\Some_Utils.pdb
+C:\Users\user\Documents\GitHub\Some_Utils_Modules\Some_Utils\Some_Utils\bin\Debug\Hive.Versioning.dll

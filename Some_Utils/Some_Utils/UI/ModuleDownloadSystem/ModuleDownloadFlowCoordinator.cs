@@ -39,7 +39,7 @@ namespace Some_Utils.UI.ModuleDownloadSystem
             //Download module_list from web
             string l_dir = "C:/SomeUtils_Modules";
             string l_fileName = "modules_list.txt";
-            string l_filePath = "C:\\SomeUtils_Modules\\modules_list.txt";
+            string l_filePath = "./modules_list.txt";
             if (!Directory.Exists(l_dir))
             {
                 Directory.CreateDirectory(l_dir);
@@ -58,7 +58,7 @@ namespace Some_Utils.UI.ModuleDownloadSystem
 
             string l_dir = "C:/SomeUtils_Modules";
             string l_fileName = "modules_list.txt";
-            string l_filePath = "C:\\SomeUtils_Modules\\modules_list.txt";
+            string l_filePath = "./modules_list.txt";
 
             //Checking if the downlaod of modules_list finished correctly
             if (!File.Exists(l_filePath))

@@ -61,6 +61,9 @@
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="Hive.Versioning">
+      <HintPath>..\..\..\..\..\Desktop\BsLegacy_Bs1.22.0\Beat Saber\Libs\Hive.Versioning.dll</HintPath>
+    </Reference>
     <Reference Include="HMLibAttributes">
       <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\HMLibAttributes.dll</HintPath>
       <Private>False</Private>

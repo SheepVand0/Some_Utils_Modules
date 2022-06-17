@@ -3,6 +3,8 @@
 	>
   <settings-container child-control-height='true' child-expand-height='true'>
     <text text='A game restart is requierd after module installation' underlined='true' font-size='3' font-align='Center'></text>
+    <button text='Check for updates' on-click='checkUpdates'></button>
+    <text text='Update Text' color='yellow' id='updateText' active='false'></text>
     <macro.for-each items='downloadableModules'>
       <horizontal>
         <text text='~moduleName' id='moduleName'></text>
