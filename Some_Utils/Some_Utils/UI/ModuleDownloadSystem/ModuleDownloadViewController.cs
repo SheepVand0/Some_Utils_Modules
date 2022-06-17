@@ -143,7 +143,7 @@ namespace Some_Utils.UI.ModuleDownloadSystem
 
             using (var l_client = new WebClient())
             {
-                l_client.DownloadFileAsync(new System.Uri("https://raw.githubusercontent.com/SheepVand0/Some_Utils_Modules/main/Finished_Modules/VersionsList.txt"), "./SomeUtils_UpdateFile");
+                l_client.DownloadFileAsync(new System.Uri("https://raw.githubusercontent.com/SheepVand0/Some_Utils_Modules/main/Finished_Modules/VersionsList.txt"), "./SomeUtils_UpdateFile.txt");
                 l_client.DownloadFileCompleted += DownloadUpdateFileCompleted;
             }
 
@@ -157,54 +157,69 @@ namespace Some_Utils.UI.ModuleDownloadSystem
                 m_updateText.text = "Error during getting update file";
                 return;
             }
-
-            using (var l_reader = File.OpenText("./Someutils_UpdateFile.txt"))
+            try
             {
-                List<string> l_lines = new List<string>();
-                string l_currentLine;
-
-                while ((l_currentLine = l_reader.ReadLine()) != "")
+                using (var l_reader = File.OpenText("./SomeUtils_UpdateFile.txt"))
                 {
-                    l_lines.Add(l_currentLine);
-                }
 
-                List<string> l_notUpdatedPlugins = new List<string>();
+                    Plugin.Log.Info("Checking valids modules versions");
 
-                for (int l_i = 0;l_i < l_lines.Count;l_i++)
-                {
-                    var l_splited = l_lines[l_i].Split(';');
-            
-                    PluginVersion l_version = new PluginVersion();
-                    
-                    l_version.m_pluginId = l_splited[0];
-                    PluginMetadata l_currentPlugin;
-                    if ((l_currentPlugin = PluginManager.GetPluginFromId(l_splited[0])) != null)
+                    List<string> l_lines = new List<string>();
+                    string l_currentLine = "";
+
+                    while ((l_currentLine = l_reader.ReadLine()) != null)
                     {
-                        l_version.m_pluginVersion = new Hive.Versioning.Version(l_splited[1]);
+                        l_lines.Add(l_currentLine);
+                    }
 
-                        if (l_version.m_pluginVersion != l_currentPlugin.HVersion)
+                    //------------------------------------
+                    List<string> l_notUpdatedPlugins = new List<string>();
+                    for (int l_i = 0; l_i < l_lines.Count; l_i++)
+                    {
+                        var l_splited = l_lines[l_i].Split(';');
+                        PluginVersion l_version = new PluginVersion();
+                        PluginMetadata l_currentPlugin;
+
+                        l_version.m_pluginId = l_splited[0];
+                        
+                        if ((l_currentPlugin = PluginManager.GetPluginFromId(l_splited[0])) != null)
                         {
-                            l_notUpdatedPlugins.Add(l_currentPlugin.Id);
+                            l_version.m_pluginVersion = new Hive.Versioning.Version(l_splited[1]);
+
+                            if (l_version.m_pluginVersion.ToString() != l_currentPlugin.HVersion.ToString())
+                            {
+                                Plugin.Log.Info(l_currentPlugin.Id+" not updated, adding");
+                                l_notUpdatedPlugins.Add(l_currentPlugin.Id);
+                            } else
+                            {
+                                Plugin.Log.Info(l_currentPlugin.Id+" updated, not adding");
+                            }
                         }
                     }
-                }
 
-                if (l_notUpdatedPlugins.Count > 0)
-                {
-                    string l_returnedValue = "";
-
-                    foreach (string l_current in l_notUpdatedPlugins)
+                    if (l_notUpdatedPlugins.Count > 0)
                     {
-                        l_returnedValue = string.Join(",", l_returnedValue, l_current);
+                        string l_returnedValue = "";
+
+                        foreach (string l_current in l_notUpdatedPlugins)
+                        {
+                            l_returnedValue = string.Join(",", l_returnedValue, l_current);
+                        }
+
+                        m_updateText.gameObject.SetActive(true);
+                        m_updateText.text = l_returnedValue + " need to be update";
+
+                    }
+                    else
+                    {
+                        m_updateText.gameObject.SetActive(true);
+                        m_updateText.text = "All plugins are updated";
                     }
 
-                    m_updateText.text = l_returnedValue + " need to be update";
-
-                } else
-                {
-                    m_updateText.text = "All plugins are updated";
                 }
-
+            } catch (Exception l_e)
+            {
+                Plugin.Log.Error(l_e);
             }
         }
 
