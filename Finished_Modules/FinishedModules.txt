@@ -1,1 +1,2 @@
 Clock.dll;https://github.com/SheepVand0/Some_Utils_Modules/blob/main/Module_Clock/Clock/bin/Debug/Clock.dll?raw=true;Clock
+Module_Particles.dll;https://github.com/SheepVand0/Some_Utils_Modules/blob/main/Module_Particles/Module_Particles/bin/Debug/Module_Particles.dll?raw=true;Module_Particles
