@@ -22,7 +22,7 @@
 			<color-setting text='Color 2' value='gradient_color_2' apply-on-change='true'></color-setting>
       <toggle-setting text='Gradient horizontal' value='gradientHorizontal' apply-on-change='true'></toggle-setting>
 			<slider-setting text='Clock glow' value='clock_glow' apply-on-change='true'  min='0' max='1' increment='0.05' show-buttons='true'></slider-setting>
-			<slider-setting text='Font size' value='clockFontSize' apply-on-change='true' min='1' max='5' increment='1' integer-only='true'></slider-setting>
+			<slider-setting text='Font size' value='clockFontSize' apply-on-change='true' min='1' max='5' increment='1' integer-only='true' show-buttons='true'></slider-setting>
 			<text text='Use this if part of clock text is hidden'></text>
 			<slider-setting text='Size delta x : ' hover-hint='text hidden horizontal' value='clockDeltaX' apply-on-change='true' min='0' max='50' increment='0.05' show-buttons='true'></slider-setting>
 			<slider-setting text='Size delta y : ' hover-hint='text hidden vertical' value='clockDeltaY' apply-on-change='true' min='0' max='50' increment='0.05' show-buttons='true'></slider-setting>
@@ -33,7 +33,6 @@
 		<settings-container child-control-height='true' child-expand-height='true'>
 			<text font-color='lime' text='use "yy" for year | use "mm" for month | use "dd" for day'></text>
 			<text font-color='lime' text='use "hh" for hour | use "mn" for minute | use "ss" for second'></text>
-			<text font-color='lime' text='"ms" for milliseconds'></text>
 			<text text='Example : hh/mn/ss dd will show : hour/minutes/seconds current day' font-color='lime'></text>
 			<text font-color='lime' text='You can use every caracters you want for separators'></text>
 		</settings-container>

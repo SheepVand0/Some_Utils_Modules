@@ -32,16 +32,17 @@ namespace Module_Particles.HarmonyPatches
             sparkleParticlesCount = PluginConfig.Instance.m_sparklesCount;
             explosionParticlesCount = PluginConfig.Instance.m_explosionParticlesCount;
             lifetimeMultiplier = PluginConfig.Instance.m_lifeTimeMultiplier * lifetimeMultiplier;
+            cutNormal = new Vector3(cutNormal.x * saberSpeed, cutNormal.y * saberSpeed, cutNormal.z);
             if (PluginConfig.Instance.m_overrideDefaultParticlesColor)
             {
 
                 if (!PluginConfig.Instance.m_useRandomParticleColor)
                 {
                     Color l_overrideParticleColor = PluginConfig.Instance.m_overrideParticleColor;
-                    color = new Color32(Convert.ToByte(l_overrideParticleColor.r * 255), Convert.ToByte(l_overrideParticleColor.r * 255), Convert.ToByte(l_overrideParticleColor.r * 255), 255);
+                    color = new Color32(Convert.ToByte(l_overrideParticleColor.r), Convert.ToByte(l_overrideParticleColor.r), Convert.ToByte(l_overrideParticleColor.r), 255);
                 } else
                 {
-                    color = new Color32(Convert.ToByte(UnityEngine.Random.Range(0, 1)*255), Convert.ToByte(UnityEngine.Random.Range(0, 1) * 255), Convert.ToByte(UnityEngine.Random.Range(0, 1) * 255),255);
+                    color = new Color32(Convert.ToByte(UnityEngine.Random.Range(0, 1)), Convert.ToByte(UnityEngine.Random.Range(0, 1)), Convert.ToByte(UnityEngine.Random.Range(0, 1)),255);
                 }
 
             }

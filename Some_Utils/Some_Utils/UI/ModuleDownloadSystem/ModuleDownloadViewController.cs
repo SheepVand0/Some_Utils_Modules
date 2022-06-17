@@ -52,10 +52,12 @@ namespace Some_Utils.UI.ModuleDownloadSystem
         [UIAction("downloadModule")]
         protected void downloadModule()
         {
+            
             if (m_moduleAlreadyInstalled)
             {
                 File.Delete("./Plugins/" + m_name);
                 m_moduleAlreadyInstalled = false;
+                m_moduleDownload.SetButtonText("Download");
             }
             else
             {
@@ -63,10 +65,16 @@ namespace Some_Utils.UI.ModuleDownloadSystem
                 {
                     client.DownloadFileAsync(new System.Uri(m_url), "./Plugins/"+m_name);
                     client.DownloadFileCompleted += ModuleFinishDownload;
+                    client.DownloadProgressChanged += ModuleDownloadProgressChange;
                     m_moduleDownload.SetButtonText("Downloading...");
                 }
                 
             }
+        }
+
+        private void ModuleDownloadProgressChange(object sender, DownloadProgressChangedEventArgs e)
+        {
+            m_moduleDownload.SetButtonText("Downloading " + e.ProgressPercentage.ToString());
         }
 
         public bool CheckIfModuleDownloaded()
@@ -92,8 +100,6 @@ namespace Some_Utils.UI.ModuleDownloadSystem
     internal class ModuleDownloadViewController : BSMLAutomaticViewController
     {
         
-
-
         public ModuleDownloadViewController()
         {
             

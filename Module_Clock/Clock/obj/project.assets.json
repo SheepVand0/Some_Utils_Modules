@@ -1037,11 +1037,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Desktop\\Items\\Files\\Codes\\BSMods\\Some_Utils_Modules\\Module_Clock\\Clock\\Clock.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Documents\\GitHub\\Some_Utils_Modules\\Module_Clock\\Clock\\Clock.csproj",
       "projectName": "Clock",
-      "projectPath": "C:\\Users\\user\\Desktop\\Items\\Files\\Codes\\BSMods\\Some_Utils_Modules\\Module_Clock\\Clock\\Clock.csproj",
+      "projectPath": "C:\\Users\\user\\Documents\\GitHub\\Some_Utils_Modules\\Module_Clock\\Clock\\Clock.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Desktop\\Items\\Files\\Codes\\BSMods\\Some_Utils_Modules\\Module_Clock\\Clock\\obj\\",
+      "outputPath": "C:\\Users\\user\\Documents\\GitHub\\Some_Utils_Modules\\Module_Clock\\Clock\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [

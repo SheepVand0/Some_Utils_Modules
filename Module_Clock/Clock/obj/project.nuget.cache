@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5Go5zcaFcgE7bB38HFYxckTyq7OVW2QnNwUxNLDZi9l/7eUc3kK19bSoDbL92vjWfmOqufYXgrVZQNcbAvelbw==",
+  "dgSpecHash": "1i7f6hm3BANVpurZ8VKr3WmsCCxOAoq7CcUl8Xwwvcml+jVXuW3tUjS/ggqgW47kACjsMmdTv/EyVyQy+XwV5Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\Items\\Files\\Codes\\BSMods\\Some_Utils_Modules\\Module_Clock\\Clock\\Clock.csproj",
+  "projectFilePath": "C:\\Users\\user\\Documents\\GitHub\\Some_Utils_Modules\\Module_Clock\\Clock\\Clock.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\beatsabermoddingtools.tasks\\2.0.0-beta4\\beatsabermoddingtools.tasks.2.0.0-beta4.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.build.framework\\16.5.0\\microsoft.build.framework.16.5.0.nupkg.sha512",
