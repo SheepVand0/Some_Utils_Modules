@@ -2,7 +2,7 @@
 	xsi:schemaLocation='https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd'
 	>
   <settings-container child-control-height='true' child-expand-height='true'>
-    <button text='Download modules'></button>
+    <button text='Download modules' on-click='openDownloadModulePage'></button>
     <grid cell-size-x='20.5' cell-size-y='20.5' child-align='MiddleCenter' spacing-x='15'>
       <macro.for-each items='modulesSettings'>
         <horizontal horizontal-fit="PreferredSize" spacing="10">

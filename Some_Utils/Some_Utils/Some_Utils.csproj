@@ -144,6 +144,8 @@
     <Compile Include="Some_UtilsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\BaseModuleSettingsViewController.cs" />
+    <Compile Include="UI\ModuleDownloadSystem\ModuleDownloadFlowCoordinator.cs" />
+    <Compile Include="UI\ModuleDownloadSystem\ModuleDownloadViewController.cs" />
     <Compile Include="UI\ModuleSettingFlowCoordinator.cs" />
     <Compile Include="UI\ModuleSettingUI.cs" />
     <Compile Include="UI\SettingsController.cs" />
@@ -162,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\BaseModuleSettingsViewController.bsml">
       <DependentUpon>BaseModuleSettingsViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ModuleDownloadSystem\ModuleDownloadViewController.bsml">
+      <DependentUpon>ModuleDownloadViewController.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

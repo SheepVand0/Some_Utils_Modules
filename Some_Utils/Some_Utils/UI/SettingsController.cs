@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using Some_Utils.ModuleSystem;
 using TMPro;
+using Some_Utils.UI.ModuleDownloadSystem;
+using HMUI;
 
 namespace Some_Utils.UI
 {
@@ -13,6 +15,8 @@ namespace Some_Utils.UI
     [ViewDefinition("Some_Utils.UI.SettingsController.bsml")]
     internal class SettingsController : BSMLAutomaticViewController
     {
+
+        ModuleDownloadFlowCoordinator _moduleDownloadFlowCoordinator;
 
         [UIValue("modulesSettings")]
         List<ModuleSettingUI> modulesSettings
@@ -27,6 +31,15 @@ namespace Some_Utils.UI
                 }
                 return l_currentModules;
                 } 
+        }
+
+        [UIAction("openDownloadModulePage")]
+        protected void openDownloadModulePage()
+        {
+            if (_moduleDownloadFlowCoordinator == null)
+                _moduleDownloadFlowCoordinator = BeatSaberUI.CreateFlowCoordinator<ModuleDownloadFlowCoordinator>();
+
+            _moduleDownloadFlowCoordinator.ShowFlow();
         }
 
         [UIAction("#post-parse")]

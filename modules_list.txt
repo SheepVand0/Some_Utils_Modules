@@ -1,1 +1,5 @@
+<<<<<<< Updated upstream
 Clock;Clock.dll;https://github.com/SheepVand0/Some_Utils_Modules/raw/main/Module_Clock/Clock/bin/Debug/Clock.dll
+=======
+Here a internet test;
+>>>>>>> Stashed changes

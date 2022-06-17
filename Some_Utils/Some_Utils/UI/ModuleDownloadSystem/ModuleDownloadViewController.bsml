@@ -4,13 +4,15 @@
   <settings-container child-control-height='true' child-expand-height='true'>
     <macro.for-each items='downloadableModules'>
       <horizontal>
-        <text text='' id='moduleName'></text>
-        <button id='downloadButton' text='Download' on-click='downloadModule' click-event='downloadModule'></button>
+        <text text='~moduleName'></text>
+        <button id='downloadButton' text='~downloadText' on-click='downloadModule' click-event='downloadModule'></button>
       </horizontal>
     </macro.for-each>
+    <loading-indicator active='~indicatorActive'></loading-indicator>
+    <text text='~refreshingPercentage' active='~indicatorActive'></text>
     <modal size-delta-x='75' size-delta-y='40' show-event='downloadModule' hide-event='closeModal'>
       <text text='Downloading module'></text>
-      <button text='Close' click-event='closeModal'></button>
+      <button text='Hide' click-event='closeModal'></button>
     </modal>
   </settings-container>
 </bg>
