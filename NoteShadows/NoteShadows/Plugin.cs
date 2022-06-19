@@ -7,17 +7,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Module_GameTweaker.Configuration;
 using Some_Utils.ModuleSystem;
-using Module_GameTweaker.UI;
 using IPALogger = IPA.Logging.Logger;
-using BeatSaberMarkupLanguage;
-using BS_Utils.Utilities;
 using HarmonyLib;
 using System.Reflection;
 using BeatSaberMarkupLanguage.ViewControllers;
+using NoteShadows.UI;
+using BeatSaberMarkupLanguage;
 
-namespace Module_GameTweaker
+namespace NoteShadows
 {
     [Plugin(RuntimeOptions.SingleStartInit)]
     public class Plugin : Some_Utils.ModuleSystem.Module
@@ -25,7 +23,7 @@ namespace Module_GameTweaker
         internal static Plugin Instance { get; private set; }
         internal static IPALogger Log { get; private set; }
 
-        Harmony m_harmony = new Harmony("BeatSaber.Some_Utils.Modules.GameTweaker");
+        Harmony m_harmony = new Harmony("BeatSaber.Some_Utils.Modules.NoteShadows");
 
         [Init]
         /// <summary>
@@ -37,9 +35,8 @@ namespace Module_GameTweaker
         {
             Instance = this;
             Log = logger;
-            Init("Module GameTweaker", "Allows you to custom game", m_settingsController);
-
-
+            Log.Info("NoteShadows initialized.");
+            Init("Note Shadows","Allows you to add note shadows",m_settingsController);
         }
 
         #region BSIPA Config
@@ -50,17 +47,14 @@ namespace Module_GameTweaker
         {
             Configuration.PluginConfig.Instance = conf.Generated<Configuration.PluginConfig>();
             Log.Debug("Config loaded");
-
-            m_harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
-        
         #endregion
 
         [OnStart]
         public void OnApplicationStart()
         {
             Log.Debug("OnApplicationStart");
-            //new GameObject("Module_GameTweakerController").AddComponent<Module_GameTweakerController>();
+            new GameObject("NoteShadowsController").AddComponent<NoteShadowsController>();
 
         }
 
@@ -75,17 +69,7 @@ namespace Module_GameTweaker
         {
             base.StartModule();
 
-            BSEvents.gameSceneLoaded += BSEvents_gameSceneLoaded;
-
-            
-        }
-
-        private void BSEvents_gameSceneLoaded()
-        {
-            if (PluginConfig.Instance.m_disableSpectrograms)
-            {
-                GameObject.Find("Spectrograms").SetActive(false);
-            }
+            m_harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
 
         public override void StopModule()
@@ -98,7 +82,7 @@ namespace Module_GameTweaker
         public override BSMLViewController AskForModuleSettingsViewController()
         {
             if (m_settingsController == null)
-                m_settingsController = BeatSaberUI.CreateViewController<GameTweakerSettingsViewController>();
+                m_settingsController = BeatSaberUI.CreateViewController<NoteShadowsSettingsViewController>();
 
             return m_settingsController;
         }
