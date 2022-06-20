@@ -1,4 +1,4 @@
 Clock;0.6.0
-Module_Particles;0.0.6
-Module_GameTweaker;0.1.0
-NoteShadows;0.0.1
+Module_Particles;0.0.7
+Module_GameTweaker;0.2.0
+NoteShadows;0.0.2
