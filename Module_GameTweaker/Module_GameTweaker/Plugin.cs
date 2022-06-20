@@ -51,7 +51,7 @@ namespace Module_GameTweaker
             Configuration.PluginConfig.Instance = conf.Generated<Configuration.PluginConfig>();
             Log.Debug("Config loaded");
 
-            m_harmony.PatchAll(Assembly.GetExecutingAssembly());
+            
         }
         
         #endregion
@@ -62,6 +62,7 @@ namespace Module_GameTweaker
             Log.Debug("OnApplicationStart");
             //new GameObject("Module_GameTweakerController").AddComponent<Module_GameTweakerController>();
 
+            m_harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
 
         [OnExit]

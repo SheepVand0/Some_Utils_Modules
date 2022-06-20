@@ -29,7 +29,6 @@ namespace Some_Utils.UI.ModuleDownloadSystem
 
             SetTitle("Download modules");
             showBackButton = true;
-            ;
         }
 
         List<ModuleDownloadUI> m_tempModulesList = new List<ModuleDownloadUI>();
