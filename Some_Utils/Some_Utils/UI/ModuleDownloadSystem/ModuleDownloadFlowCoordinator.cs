@@ -13,7 +13,7 @@ namespace Some_Utils.UI.ModuleDownloadSystem
     class ModuleDownloadFlowCoordinator : FlowCoordinator
     {
 
-        ModuleDownloadViewController m_downloadViewController;
+        ModuleDownloadViewController _m_downloadViewController;
 
         FlowCoordinator m_lastFlow;
 
@@ -62,14 +62,14 @@ namespace Some_Utils.UI.ModuleDownloadSystem
             //Checking if the downlaod of modules_list finished correctly
             if (!File.Exists(l_filePath))
             {
-                if (m_downloadViewController == null)
-                    m_downloadViewController = BeatSaberUI.CreateViewController<ModuleDownloadViewController>();
+                if (_m_downloadViewController == null)
+                    _m_downloadViewController = BeatSaberUI.CreateViewController<ModuleDownloadViewController>();
 
-                ProvideInitialViewControllers(m_downloadViewController);
+                ProvideInitialViewControllers(_m_downloadViewController);
                 
 
-                m_downloadViewController.m_postParseLoadingLayoutVisible = false;
-                m_downloadViewController.m_postParseErrorTextVisible = true;
+                _m_downloadViewController.m_postParseLoadingLayoutVisible = false;
+                _m_downloadViewController.m_postParseErrorTextVisible = true;
                 //m_downloadViewController.UpdateView();
                 return;
             }
@@ -98,15 +98,15 @@ namespace Some_Utils.UI.ModuleDownloadSystem
 
 
             //Creating view Controller
-            if (m_downloadViewController == null)
-                m_downloadViewController = BeatSaberUI.CreateViewController<ModuleDownloadViewController>();
+            if (_m_downloadViewController == null)
+                _m_downloadViewController = BeatSaberUI.CreateViewController<ModuleDownloadViewController>();
             
-            m_downloadViewController.downloadableModules = m_tempModulesList;
+            _m_downloadViewController.downloadableModules = m_tempModulesList;
 
-            ProvideInitialViewControllers(m_downloadViewController);
+            ProvideInitialViewControllers(_m_downloadViewController);
 
-            m_downloadViewController.m_postParseErrorTextVisible = false;
-            m_downloadViewController.m_postParseLoadingLayoutVisible = false;
+            _m_downloadViewController.m_postParseErrorTextVisible = false;
+            _m_downloadViewController.m_postParseLoadingLayoutVisible = false;
             //m_downloadViewController.UpdateView();
 
             m_lastFlow = BeatSaberUI.MainFlowCoordinator.YoungestChildFlowCoordinatorOrSelf();

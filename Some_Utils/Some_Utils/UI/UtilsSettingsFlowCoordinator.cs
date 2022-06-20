@@ -12,12 +12,11 @@ namespace Some_Utils.UI
     //Flow coordinator to show the module list to their settings
     public class UtilsSettingsFlowCoordinator : FlowCoordinator
     {
-        SettingsController settingsController;
+        SettingsController _settingsController;
 
         public void Awake()
         {
-            if (settingsController == null)
-                settingsController = BeatSaberUI.CreateViewController<SettingsController>();
+                _settingsController = BeatSaberUI.CreateViewController<SettingsController>();
         }
 
         protected override void DidActivate(bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling)
@@ -27,7 +26,7 @@ namespace Some_Utils.UI
 
             SetTitle("Some Utils Modules");
             showBackButton = true;
-            ProvideInitialViewControllers(settingsController);
+            ProvideInitialViewControllers(_settingsController);
         }
 
         public void ShowFlow()

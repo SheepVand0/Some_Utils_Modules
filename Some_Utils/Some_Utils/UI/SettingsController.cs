@@ -13,7 +13,7 @@ namespace Some_Utils.UI
 {
     [HotReload(RelativePathToLayout = @"SettingsController.bsml")]
     [ViewDefinition("Some_Utils.UI.SettingsController.bsml")]
-    internal class SettingsController : BSMLAutomaticViewController
+    class SettingsController : BSMLAutomaticViewController
     {
 
         ModuleDownloadFlowCoordinator _moduleDownloadFlowCoordinator;
