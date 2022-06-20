@@ -143,7 +143,7 @@ namespace Some_Utils.UI.ModuleDownloadSystem
 
             using (var l_client = new WebClient())
             {
-                l_client.DownloadFileAsync(new System.Uri("https://raw.githubusercontent.com/SheepVand0/Some_Utils_Modules/main/Finished_Modules/VersionsList.txt"), "./SomeUtils_UpdateFile.txt");
+                l_client.DownloadFileAsync(new System.Uri("https://raw.githubusercontent.com/SheepVand0/Some_Utils_Modules/UpdateBranch/Finished_Modules/VersionsList.txt"), "./SomeUtils_UpdateFile.txt");
                 l_client.DownloadFileCompleted += DownloadUpdateFileCompleted;
             }
 
@@ -215,6 +215,8 @@ namespace Some_Utils.UI.ModuleDownloadSystem
                         m_updateText.gameObject.SetActive(true);
                         m_updateText.text = "All plugins are updated";
                     }
+
+                    File.Delete("./SomeUtils_UpdateFile.txt");
 
                 }
             } catch (Exception l_e)

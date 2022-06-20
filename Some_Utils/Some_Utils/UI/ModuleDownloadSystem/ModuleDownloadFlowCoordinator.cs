@@ -46,7 +46,7 @@ namespace Some_Utils.UI.ModuleDownloadSystem
 
             using (var client = new WebClient())
             {
-                client.DownloadFileAsync(new System.Uri("https://raw.githubusercontent.com/SheepVand0/Some_Utils_Modules/main/Finished_Modules/FinishedModules.txt"), l_filePath);
+                client.DownloadFileAsync(new System.Uri("https://raw.githubusercontent.com/SheepVand0/Some_Utils_Modules/UpdateBranch/Finished_Modules/FinishedModules.txt"), l_filePath);
                 client.DownloadFileCompleted += Client_DownloadFileCompleted;
             }
 
@@ -94,7 +94,10 @@ namespace Some_Utils.UI.ModuleDownloadSystem
                 }
             }
 
+            File.Delete(l_filePath);
+
             Plugin.Log.Info("Module list refreshing finished");
+
 
 
             //Creating view Controller

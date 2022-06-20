@@ -135,9 +135,7 @@
   <ItemGroup>
     <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />
     <None Include="Module_Particles.csproj.user" Condition="Exists('Module_Particles.csproj.user')" />
-    <EmbeddedResource Include="UI\ParticlesSettingsViewController.bsml">
-      <DependentUpon>ParticlesSettingsViewController.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ParticlesSettingsViewController.bsml"/>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BeatSaberModdingTools.Tasks">

@@ -152,9 +152,7 @@
   <ItemGroup>
     <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />
     <None Include="Module_GameTweaker.csproj.user" Condition="Exists('Module_GameTweaker.csproj.user')" />
-    <EmbeddedResource Include="UI\GameTweakerSettingsViewController.bsml">
-      <DependentUpon>GameTweakerSettingsViewController.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GameTweakerSettingsViewController.bsml"/>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BeatSaberModdingTools.Tasks">
