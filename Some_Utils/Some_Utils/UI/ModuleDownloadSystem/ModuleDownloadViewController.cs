@@ -203,7 +203,7 @@ namespace Some_Utils.UI.ModuleDownloadSystem
 
                         foreach (string l_current in l_notUpdatedPlugins)
                         {
-                            l_returnedValue = l_returnedValue + ","+l_current;
+                            l_returnedValue = l_returnedValue + l_current + ", ";
                         }
 
                         m_updateText.gameObject.SetActive(true);

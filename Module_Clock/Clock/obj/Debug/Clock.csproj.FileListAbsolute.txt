@@ -45,3 +45,4 @@ C:\Users\user\Documents\GitHub\Some_Utils_Modules\Module_Clock\Clock\obj\Debug\C
 C:\Users\user\Documents\GitHub\Some_Utils_Modules\Module_Clock\Clock\obj\Debug\Clock.csproj.CopyComplete
 C:\Users\user\Documents\GitHub\Some_Utils_Modules\Module_Clock\Clock\obj\Debug\Clock.dll
 C:\Users\user\Documents\GitHub\Some_Utils_Modules\Module_Clock\Clock\obj\Debug\Clock.pdb
+C:\Users\user\Documents\GitHub\Some_Utils_Modules\Module_Clock\Clock\bin\Debug\Some_Utils.dll
