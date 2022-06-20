@@ -159,18 +159,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />
-    <EmbeddedResource Include="UI\SettingsController.bsml">
-      <DependentUpon>SettingsController.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\ModuleSettingUI.bsml">
-      <DependentUpon>ModuleSettingUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\BaseModuleSettingsViewController.bsml">
-      <DependentUpon>BaseModuleSettingsViewController.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\ModuleDownloadSystem\ModuleDownloadViewController.bsml">
-      <DependentUpon>ModuleDownloadViewController.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SettingsController.bsml"/>
+    <EmbeddedResource Include="UI\BaseModuleSettingsViewController.bsml"/>
+    <EmbeddedResource Include="UI\ModuleDownloadSystem\ModuleDownloadViewController.bsml"/>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BeatSaberModdingTools.Tasks">
@@ -178,9 +169,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Some_Utils.csproj.user" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
