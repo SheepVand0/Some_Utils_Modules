@@ -3,7 +3,7 @@
   "id": "Some_Utils",
   "name": "Some_Utils",
   "author": "SheepVand",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Utils modules base",
   "gameVersion": "1.21.0",
   "dependsOn": {

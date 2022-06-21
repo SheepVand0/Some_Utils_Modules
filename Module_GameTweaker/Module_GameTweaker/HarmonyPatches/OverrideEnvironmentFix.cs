@@ -12,11 +12,14 @@ namespace Module_GameTweaker.HarmonyPatches
     public class EnvironmentSettingsFixPatch
     {
         /// <summary>
-        /// This code is run before the original code in MethodToPatch is run.
+        /// 
         /// </summary>
-        /// <param name="__instance">The instance of ClassToPatch</param>
-        ///     added three _ to the beginning to reference it in the patch. Adding ref means we can change it.</param>
-        static void Postfix(PlayerDataFileManagerSO __instance, ref PlayerData __result, ref EnvironmentTypeSO ____normalEnvironmentType, ref EnvironmentTypeSO ____a360DegreesEnvironmentType, ref EnvironmentsListSO ____allEnvironmentInfos)
+        /// <param name="__instance"></param>
+        /// <param name="__result"></param>
+        /// <param name="____normalEnvironmentType"></param>
+        /// <param name="____a360DegreesEnvironmentType"></param>
+        /// <param name="____allEnvironmentInfos"></param>
+        public static void Postfix(PlayerDataFileManagerSO __instance, ref PlayerData __result, ref EnvironmentTypeSO ____normalEnvironmentType, ref EnvironmentTypeSO ____a360DegreesEnvironmentType, ref EnvironmentsListSO ____allEnvironmentInfos)
         {
             __result.overrideEnvironmentSettings.overrideEnvironments = PluginConfig.Instance.m_overrideEnvironmentSettings;
             if (PluginConfig.Instance.m_normalEnvironmentTypeSerializeName != null)
@@ -31,16 +34,21 @@ namespace Module_GameTweaker.HarmonyPatches
         }
     }
 
-    [HarmonyPatch(typeof(PlayerDataFileManagerSO), nameof(PlayerDataFileManagerSO.Save))]
+    [HarmonyPatch(typeof(PlayerDataFileManagerSO), nameof(PlayerDataFileManagerSO.Save), new Type[] { typeof(PlayerData) })]
     public class EnvironmentSettingsFixPatchSave
     {
-        static void Postfix(PlayerDataFileManagerSO __instance, PlayerData playerData, ref EnvironmentTypeSO ____normalEnvironmentType, ref EnvironmentTypeSO ____a360DegreesEnvironmentType)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="__instance"></param>
+        /// <param name="playerData"></param>
+        /// <param name="____normalEnvironmentType"></param>
+        /// <param name="____a360DegreesEnvironmentType"></param>
+        public static void Postfix(PlayerDataFileManagerSO __instance, PlayerData playerData, ref EnvironmentTypeSO ____normalEnvironmentType, ref EnvironmentTypeSO ____a360DegreesEnvironmentType)
         {
-
             PluginConfig.Instance.m_overrideEnvironmentSettings = playerData.overrideEnvironmentSettings.overrideEnvironments;
             PluginConfig.Instance.m_normalEnvironmentTypeSerializeName = playerData.overrideEnvironmentSettings.GetOverrideEnvironmentInfoForType(____normalEnvironmentType).serializedName;
             PluginConfig.Instance.m_360EnvironmentTypeSerializeName = playerData.overrideEnvironmentSettings.GetOverrideEnvironmentInfoForType(____a360DegreesEnvironmentType).serializedName;
-
         }
     }
 }
