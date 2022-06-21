@@ -67,7 +67,7 @@ namespace NoteShadows.HarmonyPatches
                         break;
                 }
 
-                l_shadowGm.transform.localPosition = new Vector3(l_shadowGm.transform.localPosition.x, l_yToRemove , l_shadowGm.transform.localPosition.z);
+                l_shadowGm.transform.localPosition = new Vector3(l_shadowGm.transform.localPosition.x, l_yToRemove + PluginConfig.Instance.m_noteShadowHeight , l_shadowGm.transform.localPosition.z);
 
             }
         }
