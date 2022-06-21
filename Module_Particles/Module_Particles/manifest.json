@@ -3,7 +3,7 @@
   "id": "Module_Particles",
   "name": "Module_Particles",
   "author": "SheepVand",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Some utils modules that allows you to custom particles",
   "gameVersion": "1.18.3",
   "dependsOn": {

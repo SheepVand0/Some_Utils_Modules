@@ -22,6 +22,8 @@ namespace Some_Utils.UI.ModuleDownloadSystem
     {
         protected string moduleName { get; set; }
 
+        private string m_textWhenModuleIsAlreadyinstalled = "Redownload";
+
         protected string downloadText { get { return "Download"; } set { } }
 
         [UIComponent("moduleName")] TextMeshProUGUI m_moduleName = null;
@@ -46,8 +48,7 @@ namespace Some_Utils.UI.ModuleDownloadSystem
             var l_pluginInstalled = PluginManager.GetPluginFromId(m_moduleId);
             if (l_pluginInstalled != null)
             {
-
-                m_moduleDownload.SetButtonText("Delete");
+                m_moduleDownload.SetButtonText(m_textWhenModuleIsAlreadyinstalled);
                 m_moduleAlreadyInstalled = true;
             }
         }
@@ -56,28 +57,24 @@ namespace Some_Utils.UI.ModuleDownloadSystem
         protected void downloadModule()
         {
             
-            if (m_moduleAlreadyInstalled)
+            using (var client = new WebClient())
             {
-                File.Delete("./Plugins/" + m_name);
-                m_moduleAlreadyInstalled = false;
-                m_moduleDownload.SetButtonText("Download");
-            }
-            else
-            {
-                using (var client = new WebClient())
+                if (!Directory.Exists("./IPA/Pending/Plugins"))
                 {
-                    client.DownloadFileAsync(new System.Uri(m_url), "./Plugins/"+m_name);
-                    client.DownloadFileCompleted += ModuleFinishDownload;
-                    client.DownloadProgressChanged += ModuleDownloadProgressChange;
-                    m_moduleDownload.SetButtonText("Downloading...");
+                    Directory.CreateDirectory("./IPA/Pending/Plugins");
                 }
-                
+                client.DownloadFileAsync(new System.Uri(m_url), "./IPA/Pending/Plugins/" + m_name);
+                client.DownloadFileCompleted += ModuleFinishDownload;
+                client.DownloadProgressChanged += ModuleDownloadProgressChange;
+                m_moduleDownload.SetButtonText("Downloading...");
             }
+                
+            
         }
 
         private void ModuleDownloadProgressChange(object sender, DownloadProgressChangedEventArgs e)
         {
-            m_moduleDownload.SetButtonText("Downloading " + e.ProgressPercentage.ToString());
+            m_moduleDownload.SetButtonText("Downloading : " + e.ProgressPercentage.ToString());
         }
 
         public bool CheckIfModuleDownloaded()
@@ -90,7 +87,7 @@ namespace Some_Utils.UI.ModuleDownloadSystem
             m_moduleAlreadyInstalled=CheckIfModuleDownloaded();
             if (m_moduleAlreadyInstalled)
             {
-                m_moduleDownload.SetButtonText("Delete");
+                m_moduleDownload.SetButtonText(m_textWhenModuleIsAlreadyinstalled);
             } else
             {
                 m_moduleDownload.SetButtonText("Download");

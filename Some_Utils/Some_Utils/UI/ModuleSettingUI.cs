@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using Some_Utils.ModuleSystem;
 
-
 namespace Some_Utils.UI
 {
     class ModuleSettingUI
@@ -30,8 +29,6 @@ namespace Some_Utils.UI
             get { return (m_moduleRef.m_name != "") ? m_moduleRef.m_name : "Module Name Not Valid"; }
             set { }
         }
-
-        
 
         [UIAction("#post-parse")]
         internal void PostParse()

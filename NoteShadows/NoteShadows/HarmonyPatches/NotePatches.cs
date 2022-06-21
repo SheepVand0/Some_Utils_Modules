@@ -28,8 +28,6 @@ namespace NoteShadows.HarmonyPatches
             l_currentGM.transform.localRotation = Quaternion.Euler(new Vector3(90, 0, 0));
             l_currentGM.transform.localScale = Vector3.one * (0.17f * PluginConfig.Instance.note_shadow_scale);
 
-            float l_yToRemove = 1.0f;
-
             //l_yToRemove = __instance.transform.GetChild(0).gameObject.transform.position.y;
             l_currentGM.transform.localPosition = new Vector3(-0.67f * PluginConfig.Instance.note_shadow_scale,  l_currentGM.transform.localPosition.y, l_currentGM.transform.localPosition.z + PluginConfig.Instance.m_noteShadowOffset);
             l_currentMeshRend.sprite = l_shadowTexture;
@@ -60,12 +58,14 @@ namespace NoteShadows.HarmonyPatches
                         l_yToRemove = -1.0f;
                         break;
                     case NoteLineLayer.Upper:
-                        l_yToRemove = -1.1f;
+                        l_yToRemove = -1.5f;
                         break;
                     case NoteLineLayer.Top:
-                        l_yToRemove = -1.2f;
+                        l_yToRemove = -2.0f;
                         break;
                 }
+
+                //l_yToRemove = l_yToRemove + PluginConfig.Instance.m_noteShadowHeight;
 
                 l_shadowGm.transform.localPosition = new Vector3(l_shadowGm.transform.localPosition.x, l_yToRemove + PluginConfig.Instance.m_noteShadowHeight , l_shadowGm.transform.localPosition.z);
 

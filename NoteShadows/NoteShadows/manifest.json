@@ -3,11 +3,11 @@
   "id": "NoteShadows",
   "name": "NoteShadows",
   "author": "SheepVand",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "gameVersion": "1.18.3",
   "dependsOn": {
     "BSIPA": "^4.2.0",
-    "Some_Utils":  "^0.3.0"
+    "Some_Utils":  "^0.4.0"
   }
 }
