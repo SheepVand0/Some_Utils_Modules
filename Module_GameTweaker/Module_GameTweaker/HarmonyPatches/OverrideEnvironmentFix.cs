@@ -8,28 +8,28 @@ using Module_GameTweaker.Configuration;
 
 namespace Module_GameTweaker.HarmonyPatches
 {
-    [HarmonyPatch(typeof(PlayerDataFileManagerSO), nameof(PlayerDataFileManagerSO.LoadFromCurrentVersion))]
+    [HarmonyPatch(typeof(PlayerDataFileManagerSO), nameof(PlayerDataFileManagerSO.CreateDefaultOverrideEnvironmentSettings))]
     public class EnvironmentSettingsFixPatch
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="__instance"></param>
         /// <param name="__result"></param>
         /// <param name="____normalEnvironmentType"></param>
         /// <param name="____a360DegreesEnvironmentType"></param>
         /// <param name="____allEnvironmentInfos"></param>
-        public static void Postfix(PlayerDataFileManagerSO __instance, ref PlayerData __result, ref EnvironmentTypeSO ____normalEnvironmentType, ref EnvironmentTypeSO ____a360DegreesEnvironmentType, ref EnvironmentsListSO ____allEnvironmentInfos)
+        public static void Postfix(PlayerDataFileManagerSO __instance, OverrideEnvironmentSettings __result, ref EnvironmentsListSO ____allEnvironmentInfos, ref EnvironmentTypeSO ____normalEnvironmentType, ref EnvironmentTypeSO ____a360DegreesEnvironmentType)
         {
-            __result.overrideEnvironmentSettings.overrideEnvironments = PluginConfig.Instance.m_overrideEnvironmentSettings;
+            __result.overrideEnvironments = PluginConfig.Instance.m_overrideEnvironmentSettings;
             if (PluginConfig.Instance.m_normalEnvironmentTypeSerializeName != null)
             {
-                __result.overrideEnvironmentSettings.SetEnvironmentInfoForType(____normalEnvironmentType, ____allEnvironmentInfos.GetEnvironmentInfoBySerializedName(PluginConfig.Instance.m_normalEnvironmentTypeSerializeName));
+                __result.SetEnvironmentInfoForType(____normalEnvironmentType, ____allEnvironmentInfos.GetEnvironmentInfoBySerializedName(PluginConfig.Instance.m_normalEnvironmentTypeSerializeName));
             }
 
             if (PluginConfig.Instance.m_360EnvironmentTypeSerializeName != null)
             {
-                __result.overrideEnvironmentSettings.SetEnvironmentInfoForType(____a360DegreesEnvironmentType, ____allEnvironmentInfos.GetEnvironmentInfoBySerializedName(PluginConfig.Instance.m_360EnvironmentTypeSerializeName));
+                __result.SetEnvironmentInfoForType(____a360DegreesEnvironmentType, ____allEnvironmentInfos.GetEnvironmentInfoBySerializedName(PluginConfig.Instance.m_360EnvironmentTypeSerializeName));
             }
         }
     }
@@ -38,13 +38,13 @@ namespace Module_GameTweaker.HarmonyPatches
     public class EnvironmentSettingsFixPatchSave
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="__instance"></param>
         /// <param name="playerData"></param>
         /// <param name="____normalEnvironmentType"></param>
         /// <param name="____a360DegreesEnvironmentType"></param>
-        public static void Postfix(PlayerDataFileManagerSO __instance, PlayerData playerData, ref EnvironmentTypeSO ____normalEnvironmentType, ref EnvironmentTypeSO ____a360DegreesEnvironmentType)
+        public static void Postfix(PlayerDataFileManagerSO __instance, ref PlayerData playerData, ref EnvironmentTypeSO ____normalEnvironmentType, ref EnvironmentTypeSO ____a360DegreesEnvironmentType)
         {
             PluginConfig.Instance.m_overrideEnvironmentSettings = playerData.overrideEnvironmentSettings.overrideEnvironments;
             PluginConfig.Instance.m_normalEnvironmentTypeSerializeName = playerData.overrideEnvironmentSettings.GetOverrideEnvironmentInfoForType(____normalEnvironmentType).serializedName;

@@ -1,13 +1,31 @@
-﻿<bg xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
+﻿<bg xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
 	xsi:schemaLocation='https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd'
 	>
-  <settings-container child-control-height='true' child-expand-height='true'>
-    <toggle-setting text='Disable Beat lines' value='disableBeatLines' apply-on-change='true'></toggle-setting>
-    <toggle-setting text='Disable Spectrograms' value='disableSpectrograms' apply-on-change='true'></toggle-setting>
-    <text text='-----------rings-----------'></text>
-    <slider-setting text='Rings scale' show-buttons='true' min='0' max='2' increment='0.05' apply-on-change='true' value='ringScale'></slider-setting>
-    <slider-setting show-buttons='true' increment='1' min='0' max='50' integer-only='true' value='ringCount' apply-on-change='true' text='Ring count'></slider-setting>
-    <slider-setting text='Rings rotation speed' show-buttons='true' min='0' increment='0.05' max='15' apply-on-change='true' value='ringRotSpeed'></slider-setting>
-    <slider-setting text='Rings movement speed' show-buttons='true' min='0' increment='0.05' max='15' apply-on-change='true' value='ringMovSpeed'></slider-setting>
-  </settings-container>
+  <tab-selector tab-tag='gameTweakerTabs'></tab-selector>
+  <tab tab-name='Global' tags='gameTweakerTabs'>
+
+    <settings-container child-control-height='true' child-expand-height='true'>
+      <toggle-setting text='Disable Beat lines' value='disableBeatLines' apply-on-change='true'></toggle-setting>
+      <toggle-setting text='Disable Spectrograms' value='disableSpectrograms' apply-on-change='true'></toggle-setting>
+      <slider-setting text='Rings scale' show-buttons='true' min='0' max='2' increment='0.05' apply-on-change='true' value='ringScale'></slider-setting>
+      <slider-setting show-buttons='true' increment='1' min='0' max='50' integer-only='true' value='ringCount' apply-on-change='true' text='Ring count'></slider-setting>
+      <slider-setting text='Rings rotation speed' show-buttons='true' min='0' increment='0.05' max='15' apply-on-change='true' value='ringRotSpeed'></slider-setting>
+      <slider-setting text='Rings movement speed' show-buttons='true' min='0' increment='0.05' max='15' apply-on-change='true' value='ringMovSpeed'></slider-setting>
+      <toggle-setting text='Use gradient combo' value='useGradientCombo' apply-on-change='true'></toggle-setting>
+      <color-setting text='color1' value='comboGradient1' apply-on-change='true'></color-setting>
+      <color-setting text='color2' value='comboGradient2' apply-on-change='true'></color-setting>
+    </settings-container>
+  </tab>
+  <tab tab-name='Multiplayer' tags='gameTweakerTabs'>
+    <settings-container child-control-height='true' child-expand-height='true'>
+      <color-setting text='Multiplayer lights color' value='multiLights' apply-on-change='true'></color-setting>
+      <toggle-setting text='Disable #1 Preview' value='preview1Disable' apply-on-change='true'></toggle-setting>
+    </settings-container>
+  </tab>
+  <tab tab-name='Other' tags='gameTweakerTabs'>
+	  <settings-container child-control-height='true' child-expand-height='true'>
+        <toggle-setting text='Enable higher player height' value='EditPlrHeight' apply-on-change='true'></toggle-setting>
+	    <slider-setting text='Value to add' apply-on-change='true' value='PlrHeightAdd' show-buttons='true' min='-20' max='25'></slider-setting>
+	  </settings-container>
+  </tab>
 </bg>

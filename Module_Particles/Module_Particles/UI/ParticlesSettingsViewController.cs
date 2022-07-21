@@ -76,6 +76,21 @@ namespace Module_Particles.UI
             set => PluginConfig.Instance.m_multiplyParticleDirectionY = value;
         }
 
+        [UIValue("multCoefX")]
+        protected float multiCoefX
+        {
+            get => PluginConfig.Instance.m_particleDirectionMultX;
+            set => PluginConfig.Instance.m_particleDirectionMultX = value;
+        }
+
+        [UIValue("multCoefY")]
+        protected float multCoefY
+        {
+            get => PluginConfig.Instance.m_particleDirectionMultY;
+            set => PluginConfig.Instance.m_particleDirectionMultY = value;
+        }
+
+
         [UIAction("#post-parse")]
         internal void PostParse()
         {

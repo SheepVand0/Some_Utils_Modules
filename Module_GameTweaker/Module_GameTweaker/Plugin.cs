@@ -44,23 +44,22 @@ namespace Module_GameTweaker
 
         #region BSIPA Config
         //Uncomment to use BSIPA's config
-        
+
         [Init]
         public void InitWithConfig(IPA.Config.Config conf)
         {
             Configuration.PluginConfig.Instance = conf.Generated<Configuration.PluginConfig>();
             Log.Debug("Config loaded");
 
-            
+
         }
-        
+
         #endregion
 
         [OnStart]
         public void OnApplicationStart()
         {
             Log.Debug("OnApplicationStart");
-            //new GameObject("Module_GameTweakerController").AddComponent<Module_GameTweakerController>();
 
             m_harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
@@ -69,7 +68,6 @@ namespace Module_GameTweaker
         public void OnApplicationQuit()
         {
             Log.Debug("OnApplicationQuit");
-
         }
 
         public override void StartModule()
@@ -77,8 +75,7 @@ namespace Module_GameTweaker
             base.StartModule();
 
             BSEvents.gameSceneLoaded += BSEvents_gameSceneLoaded;
-
-            
+            new GameObject("Module_GameTweakerController").AddComponent<Module_GameTweakerController>();
         }
 
         private void BSEvents_gameSceneLoaded()

@@ -5,7 +5,7 @@ using BeatSaberMarkupLanguage.ViewControllers;
 using System;
 using System.Collections.Generic;
 using Module_GameTweaker.Configuration;
-
+using UnityEngine;
 
 namespace Module_GameTweaker.UI
 {
@@ -56,6 +56,54 @@ namespace Module_GameTweaker.UI
             set => PluginConfig.Instance.m_ringsMoveSpeed = value;
         }
 
+        [UIValue("multiLights")]
+        protected Color multiLights
+        {
+            get => PluginConfig.Instance.m_multiLightsColor;
+            set => PluginConfig.Instance.m_multiLightsColor = value;
+        }
+
+        [UIValue("preview1Disable")]
+        protected bool preview1Disable
+        {
+            get => PluginConfig.Instance.m_disablePreviewOfTheBestInMulti;
+            set => PluginConfig.Instance.m_disablePreviewOfTheBestInMulti = value;
+        }
+
+        [UIValue("useGradientCombo")]
+        protected bool useGradientCombo
+        {
+            get => PluginConfig.Instance.m_useComboGradient;
+            set => PluginConfig.Instance.m_useComboGradient = value;
+        }
+
+        [UIValue("comboGradient1")]
+        protected Color comboGradient1
+        {
+            get => PluginConfig.Instance.m_comboGradient1;
+            set => PluginConfig.Instance.m_comboGradient1 = value;
+        }
+
+        [UIValue("comboGradient2")]
+        protected Color comboGradient2
+        {
+            get => PluginConfig.Instance.m_comboGradient2;
+            set => PluginConfig.Instance.m_comboGradient2 = value;
+        }
+
+        [UIValue("EditPlrHeight")]
+        protected bool EditPlrheight
+        {
+            get => PluginConfig.Instance.EditPlayerHeight;
+            set => PluginConfig.Instance.EditPlayerHeight = value;
+        }
+
+        [UIValue("PlrHeightAdd")]
+        protected float PlrHeightAdd
+        {
+            get => PluginConfig.Instance.PlayerHeightAdd;
+            set => PluginConfig.Instance.PlayerHeightAdd = value;
+        }
 
         [UIAction("#post-parse")]
         internal void PostParse()

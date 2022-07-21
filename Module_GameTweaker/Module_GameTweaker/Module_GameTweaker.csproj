@@ -138,6 +138,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HarmonyPatches\BeatLinesPatch.cs" />
+    <Compile Include="HarmonyPatches\ComboPatch.cs" />
+    <Compile Include="HarmonyPatches\MultiplayerPatches.cs" />
+    <Compile Include="HarmonyPatches\NotesPatches.cs" />
     <Compile Include="HarmonyPatches\OverrideEnvironmentFix.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Configuration\PluginConfig.cs" />
@@ -152,7 +155,7 @@
   <ItemGroup>
     <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />
     <None Include="Module_GameTweaker.csproj.user" Condition="Exists('Module_GameTweaker.csproj.user')" />
-    <EmbeddedResource Include="UI\GameTweakerSettingsViewController.bsml"/>
+    <EmbeddedResource Include="UI\GameTweakerSettingsViewController.bsml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BeatSaberModdingTools.Tasks">

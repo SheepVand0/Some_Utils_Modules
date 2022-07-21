@@ -38,7 +38,7 @@ namespace Some_Utils.UI.ModuleDownloadSystem
             m_name = p_name;
             m_url = p_url;
             m_moduleId = p_moduleId;
-     
+
         }
 
         [UIAction("#post-parse")]
@@ -56,7 +56,7 @@ namespace Some_Utils.UI.ModuleDownloadSystem
         [UIAction("downloadModule")]
         protected void downloadModule()
         {
-            
+
             using (var client = new WebClient())
             {
                 if (!Directory.Exists("./IPA/Pending/Plugins"))
@@ -68,8 +68,6 @@ namespace Some_Utils.UI.ModuleDownloadSystem
                 client.DownloadProgressChanged += ModuleDownloadProgressChange;
                 m_moduleDownload.SetButtonText("Downloading...");
             }
-                
-            
         }
 
         private void ModuleDownloadProgressChange(object sender, DownloadProgressChangedEventArgs e)
@@ -114,7 +112,7 @@ namespace Some_Utils.UI.ModuleDownloadSystem
 
         public ModuleDownloadViewController()
         {
-            
+
         }
 
         [UIComponent("ErrorText")] TextMeshProUGUI m_errorText = null;
@@ -129,7 +127,7 @@ namespace Some_Utils.UI.ModuleDownloadSystem
         [UIAction("#post-parse")]
         internal void PostParse()
         {
-            UpdateView();   
+            UpdateView();
             //using (var l_reader = File.OpenText(""))
             // Code to run after BSML finishe
         }
@@ -178,7 +176,7 @@ namespace Some_Utils.UI.ModuleDownloadSystem
                         PluginMetadata l_currentPlugin;
 
                         l_version.m_pluginId = l_splited[0];
-                        
+
                         if ((l_currentPlugin = PluginManager.GetPluginFromId(l_splited[0])) != null)
                         {
                             l_version.m_pluginVersion = new Hive.Versioning.Version(l_splited[1]);

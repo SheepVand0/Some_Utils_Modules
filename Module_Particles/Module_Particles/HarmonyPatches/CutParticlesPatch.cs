@@ -31,13 +31,12 @@ namespace Module_Particles.HarmonyPatches
             sparkleParticlesCount = PluginConfig.Instance.m_sparklesCount;
             explosionParticlesCount = PluginConfig.Instance.m_explosionParticlesCount;
             cutNormal = new Vector3(
-                (PluginConfig.Instance.m_multiplyParticleDirectionX) ? cutNormal.x * saberSpeed : cutNormal.x, 
-                (PluginConfig.Instance.m_multiplyParticleDirectionY) ? cutNormal.y * saberSpeed : cutNormal.y, 
+                (PluginConfig.Instance.m_multiplyParticleDirectionX) ? cutNormal.x * saberSpeed * PluginConfig.Instance.m_particleDirectionMultX : cutNormal.x, 
+                (PluginConfig.Instance.m_multiplyParticleDirectionY) ? cutNormal.y * saberSpeed * PluginConfig.Instance.m_particleDirectionMultY : cutNormal.y, 
                 cutNormal.z);
             lifetimeMultiplier = PluginConfig.Instance.m_lifeTimeMultiplier * lifetimeMultiplier;
             if (PluginConfig.Instance.m_overrideDefaultParticlesColor)
             {
-
                 if (!PluginConfig.Instance.m_useRandomParticleColor)
                 {
                     Color l_overrideParticleColor = PluginConfig.Instance.m_overrideParticleColor;
@@ -46,11 +45,7 @@ namespace Module_Particles.HarmonyPatches
                 {
                     color = new Color32(Convert.ToByte(UnityEngine.Random.Range(0, 1)), Convert.ToByte(UnityEngine.Random.Range(0, 1)), Convert.ToByte(UnityEngine.Random.Range(0, 1)),255);
                 }
-
             }
         }
-
     }
-
-
 }

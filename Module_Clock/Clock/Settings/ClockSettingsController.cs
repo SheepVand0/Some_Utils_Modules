@@ -186,6 +186,5 @@ namespace Clock.Settings
             get => Plugin.CurrentConfig.m_clockFont;
             set => Plugin.CurrentConfig.m_clockFont = value;
         }*/
-        
     }
 }

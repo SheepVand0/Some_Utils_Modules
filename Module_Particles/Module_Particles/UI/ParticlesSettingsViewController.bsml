@@ -10,6 +10,8 @@
     <color-setting text='Override color : ' value='particleOverrideColor' apply-on-change='true'></color-setting>
     <toggle-setting text='Use random particle color : ' value='useRandomParticleColor' apply-on-change='true'></toggle-setting>
     <toggle-setting text='Multiply particle direction X' apply-on-change='true' value='multPartDirX'></toggle-setting>
+    <slider-setting text='Value : ' min='0' max='5' increment='0.05' apply-on-change='true' value='multCoefX' show-buttons='true'></slider-setting>
     <toggle-setting text='Multiply particle direction Y' apply-on-change='true' value='multPartDirY'></toggle-setting>
+    <slider-setting text='Value : ' min='0' max='5' increment='0.05' apply-on-change='true' value='multCoefY' show-buttons='true'></slider-setting>
   </settings-container>
 </bg>

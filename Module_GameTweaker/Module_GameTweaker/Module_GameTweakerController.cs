@@ -17,6 +17,8 @@ namespace Module_GameTweaker
     {
         public static Module_GameTweakerController Instance { get; private set; }
 
+        public Color m_defaultMultiLightsColor;
+
         // These methods are automatically called by Unity, you should remove any you aren't using.
         #region Monobehaviour Messages
         /// <summary>

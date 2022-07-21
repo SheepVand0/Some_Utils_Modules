@@ -35,7 +35,7 @@ namespace Some_Utils.ModuleSystem
 
         public virtual void StopModule()
         {
-
+            Plugin.Log.Info("Unloading : " + m_name);
         }
 
         public virtual BSMLViewController AskForModuleSettingsViewController()

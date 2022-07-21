@@ -5,7 +5,6 @@
 			<modifier text='Clock enabled' value='clock_enabled' apply-on-change='true'></modifier>
 		</modifier-container>
 	</tab>
-	
 	<tab tab-name='format' tags='clockt'>
 		<settings-container child-control-height='true' child-expand-height='true'>
 			<toggle-setting text='Use custom clock format' value='use_custom_format' apply-on-change='true'></toggle-setting>

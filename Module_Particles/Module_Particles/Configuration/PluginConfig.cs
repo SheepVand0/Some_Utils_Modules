@@ -30,6 +30,10 @@ namespace Module_Particles.Configuration
         public virtual bool m_multiplyParticleDirectionX { get; set; } = false;
         [JsonProperty("particleDirectionY")]
         public virtual bool m_multiplyParticleDirectionY { get; set; } = false;
+        [JsonProperty("particleMultX")]
+        public virtual float m_particleDirectionMultX { get; set; } = 1.0f;
+        [JsonProperty("particleMultY")]
+        public virtual float m_particleDirectionMultY { get; set; } = 1.0f;
 
 
         /// <summary>

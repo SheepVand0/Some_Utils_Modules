@@ -42,6 +42,22 @@ namespace Module_GameTweaker.Configuration
         public virtual string m_normalEnvironmentTypeSerializeName { get; set; } = "";
         [JsonProperty("360EnvironmentTypeSerializeName")]
         public virtual string m_360EnvironmentTypeSerializeName { get; set; } = "";
+        [JsonProperty("DisableMuliplayerLights")]
+        public virtual Color m_multiLightsColor { get; set; } = Color.cyan;
+        [JsonProperty("DisablePreviewOfTheBestInMulti")]
+        public virtual bool m_disablePreviewOfTheBestInMulti { get; set; } = false;
+        [JsonProperty("beforeEditMultiColor")]
+        public virtual Color m_beforeEditMultiColor { get; set; } = Color.blue;
+        [JsonProperty("useComboGradient")]
+        public virtual bool m_useComboGradient { get; set; } = false;
+        [JsonProperty("comboGradient1")]
+        public virtual Color m_comboGradient1 { get; set; } = Color.blue;
+        [JsonProperty("comboGradient2")]
+        public virtual Color m_comboGradient2 { get; set; } = Color.magenta;
+        [JsonProperty("EditPlrHeight")]
+        public virtual bool EditPlayerHeight { get; set; } = false;
+        [JsonProperty("PlayerHeightAdd")]
+        public virtual float PlayerHeightAdd { get; set; } = 0.0f;
 
         /// <summary>
         /// This is called whenever BSIPA reads the config from disk (including when file changes are detected).
