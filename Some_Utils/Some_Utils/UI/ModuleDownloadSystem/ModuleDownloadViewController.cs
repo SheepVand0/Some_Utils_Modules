@@ -109,7 +109,6 @@ namespace Some_Utils.UI.ModuleDownloadSystem
     [ViewDefinition("Some_Utils.UI.ModuleDownloadSystem.ModuleDownloadViewController.bsml")]
     internal class ModuleDownloadViewController : BSMLAutomaticViewController
     {
-
         public ModuleDownloadViewController()
         {
 

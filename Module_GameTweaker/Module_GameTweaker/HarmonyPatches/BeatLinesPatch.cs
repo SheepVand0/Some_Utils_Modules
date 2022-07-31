@@ -20,7 +20,6 @@ namespace Module_GameTweaker.HarmonyPatches
             {
                 __instance.enabled = false;
             }
-
         }
 
     }

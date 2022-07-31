@@ -9,14 +9,13 @@ using UnityEngine;
 
 namespace Module_GameTweaker
 {
-    [HarmonyPatch(typeof(TrackLaneRingsManager),nameof(TrackLaneRingsManager.Awake))]
+    [HarmonyPatch(typeof(TrackLaneRingsManager),"Awake")]
     internal class RingsPatches
     {
 
         public static void Prefix(TrackLaneRingsManager __instance, ref int ____ringCount)
         {
             ____ringCount = PluginConfig.Instance.m_ringsCount;
-            
             /*foreach (var l_currentRing in __instance.Rings)
             {
                 l_currentRing.gameObject.transform.localScale = Vector3.one * PluginConfig.Instance.m_ringsScale;
