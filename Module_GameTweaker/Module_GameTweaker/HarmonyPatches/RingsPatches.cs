@@ -9,11 +9,15 @@ using UnityEngine;
 
 namespace Module_GameTweaker
 {
-    [HarmonyPatch(typeof(TrackLaneRingsManager),"Awake")]
-    internal class RingsPatches
+    [HarmonyPatch(typeof(TrackLaneRingsManager),nameof(TrackLaneRingsManager.Start))]
+    class RingsPatches
     {
-
-        public static void Prefix(TrackLaneRingsManager __instance, ref int ____ringCount)
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="__instance"></param>
+        /// <param name="____ringCount"></param>
+        public static void Prefix(TrackLaneRingsManager __instance, int ____ringCount)
         {
             ____ringCount = PluginConfig.Instance.m_ringsCount;
             /*foreach (var l_currentRing in __instance.Rings)
@@ -44,10 +48,5 @@ namespace Module_GameTweaker
             moveSpeed = PluginConfig.Instance.m_ringsMoveSpeed;
         }
     }
-
-
-
-
-
 
 }
